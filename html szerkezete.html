@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Szerkezete</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="nav-left">
+            <img src="Logó.png" class="logo" alt="Logo">
+            <h1 class="title">Weboldal programozás</h1>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Főoldal</a>
+            <a href="html szerkezete.html">HTML szerkezete</a>
+            <a href="css szerkezete.html">CSS szerkezete</a>
+            <a href="https://my.storageshare.cloud/s/4eBWqf2wj85GrLj"  target="_blank">Feltöltések</a>
+        </div>
+    </div>
+
+    <div class="fooldal">
+        <h1>HTML elemek részletes bemutatása</h1>
+        <p class="intro">
+            A HTML (HyperText Markup Language) minden weboldal alapja. Ezen az oldalon bemutatjuk a legfontosabb HTML elemeket és azok használatát, kezdve a dokumentum szerkezetétől egészen a speciális elemekig.
+        </p>
+
+        <h2>1. Dokumentum szerkezete</h2>
+        <ul>
+            <li><strong>&lt;!DOCTYPE html&gt;</strong> – HTML5 dokumentum típus jelölése.</li>
+            <li><strong>&lt;html lang="...">&lt;/html&gt;</strong> – az egész HTML dokumentumot keretezi, a "lang" attribútum a nyelvet adja meg.</li>
+            <li><strong>&lt;head&gt;&lt;/head&gt;</strong> – metaadatok, cím, stílusok, script-ek.</li>
+            <li><strong>&lt;title&gt;</strong> – a weboldal címe a böngésző fülén.</li>
+            <li><strong>&lt;meta charset="UTF-8"&gt;</strong> – karakterkódolás beállítása, így az ékezetes karakterek is helyesen jelennek meg.</li>
+            <li><strong>&lt;link&gt;</strong> – külső CSS fájlok kapcsolása.</li>
+            <li><strong>&lt;script&gt;</strong> – JavaScript kód beszúrása.</li>
+        </ul>
+
+        <h2>2. Címsorok és szöveg</h2>
+        <ul>
+            <li><strong>&lt;h1&gt; ... &lt;h6&gt;</strong> – címsorok</li>
+            <li><strong>&lt;p&gt;</strong> – bekezdés</li>
+            <li><strong>&lt;span&gt;</strong> – inline elem, stílusozáshoz</li>
+            <li><strong>&lt;br&gt;</strong> – sorváltás</li>
+            <li><strong>&lt;hr&gt;</strong> – vízszintes vonal</li>
+            <li><strong>&lt;blockquote&gt;</strong> – idézet</li>
+            <li><strong>&lt;strong&gt;</strong> – hangsúlyos, félkövér szöveg</li>
+            <li><strong>&lt;em&gt;</strong> – dőlt, hangsúlyos szöveg</li>
+        </ul>
+
+        <h2>3. Linkek és képek</h2>
+        <ul>
+            <li><strong>&lt;a href="URL"&gt;</strong> – linkek létrehozása</li>
+            <li><strong>&lt;img src="..." alt="..."&gt;</strong> – kép beszúrása</li>
+            <li><strong>&lt;map&gt; &lt;area&gt;</strong> – képtérképek létrehozása</li>
+        </ul>
+
+        <h2>4. Listák</h2>
+        <ul>
+            <li><strong>&lt;ul&gt;&lt;li&gt;</strong> – rendezetlen lista</li>
+            <li><strong>&lt;ol&gt;&lt;li&gt;</strong> – rendezett lista</li>
+        </ul>
+
+        <h2>5. Táblázatok</h2>
+        <ul>
+            <li><strong>&lt;table&gt;</strong> – táblázat</li>
+            <li><strong>&lt;tr&gt;</strong> – táblázatsor</li>
+            <li><strong>&lt;td&gt;</strong> – cella</li>
+            <li><strong>&lt;th&gt;</strong> – fejléccella</li>
+            <li><strong>&lt;caption&gt;</strong> – táblázat cím</li>
+        </ul>
+
+        <h2>6. Űrlapok</h2>
+        <ul>
+            <li><strong>&lt;form&gt;</strong> – űrlap létrehozása</li>
+            <li><strong>&lt;input&gt;</strong> – mezők (text, password, checkbox, radio, submit)</li>
+            <li><strong>&lt;textarea&gt;</strong> – több soros szövegmező</li>
+            <li><strong>&lt;button&gt;</strong> – gomb</li>
+            <li><strong>&lt;label&gt;</strong> – címke input mezőkhöz</li>
+            <li><strong>&lt;select&gt;&lt;option&gt;</strong> – legördülő lista</li>
+        </ul>
+
+        <h2>7. Strukturális HTML5 elemek</h2>
+        <ul>
+            <li><strong>&lt;header&gt;</strong> – fejléc rész</li>
+            <li><strong>&lt;footer&gt;</strong> – lábléc</li>
+            <li><strong>&lt;main&gt;</strong> – fő tartalom</li>
+            <li><strong>&lt;section&gt;</strong> – tematikus szakasz</li>
+            <li><strong>&lt;article&gt;</strong> – önálló tartalmi egység</li>
+            <li><strong>&lt;nav&gt;</strong> – navigációs menü</li>
+            <li><strong>&lt;aside&gt;</strong> – melléklet, pl. oldalsáv</li>
+        </ul>
+
+        <h2>8. Média elemek</h2>
+        <ul>
+            <li><strong>&lt;audio&gt;</strong> – hang lejátszása</li>
+            <li><strong>&lt;video&gt;</strong> – videó beillesztése</li>
+            <li><strong>&lt;source&gt;</strong> – média forrás</li>
+            <li><strong>&lt;iframe&gt;</strong> – beágyazott tartalom</li>
+        </ul>
+
+        <h2>9. Egyéb elemek</h2>
+        <ul>
+            <li><strong>&lt;div&gt;</strong> – blokk konténer</li>
+            <li><strong>&lt;span&gt;</strong> – inline konténer</li>
+            <li><strong>&lt;code&gt;</strong> – kód kiemelése</li>
+            <li><strong>&lt;pre&gt;</strong> – formázott szöveg</li>
+            <li><strong>&lt;small&gt;</strong> – kisebb szöveg</li>
+            <li><strong>&lt;mark&gt;</strong> – kiemelés</li>
+            <li><strong>&lt;del&gt;, &lt;ins&gt;</strong> – törölt és beszúrt szöveg</li>
+        </ul>
+
+        <h2>Tippek kezdőknek</h2>
+        <ul>
+            <li>Mindig zárd le a nyitó tageket, kivéve a self-closing tag-eket, mint <code>&lt;br&gt;</code> vagy <code>&lt;img&gt;</code>.</li>
+            <li>Használj címsorokat a tartalom logikus felépítéséhez.</li>
+            <li>Kommenteket használj a kód olvashatóságához: <code>&lt;!-- Ez egy komment --&gt;</code></li>
+            <li>Formázd a kódot behúzásokkal és sorokkal.</li>
+            <li>Kezdj egyszerű elemekkel, majd haladj a HTML5 strukturális elemek felé.</li>
+        </ul>
+
+        <h2>Példa egyszerű HTML dokumentumra</h2>
+        <p>Itt egy rövid példa, amely tartalmaz címsort, bekezdést és linket:</p>
+        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="hu"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Példa&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Üdv a weboldalon!&lt;/h1&gt;
+    &lt;p&gt;Ez egy rövid bemutató HTML oldal.&lt;/p&gt;
+    &lt;a href="https://www.example.com"&gt;Kattints ide&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS szerkezete</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="nav-left">
+            <img src="Logó.png" class="logo" alt="Logo">
+            <h1 class="title">Weboldal programozás</h1>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Főoldal</a>
+            <a href="html szerkezete.html">HTML szerkezete</a>
+            <a href="css szerkezete.html">CSS szerkezete</a>
+            <a href="https://my.storageshare.cloud/s/4eBWqf2wj85GrLj"  target="_blank">Feltöltések</a>
+        </div>
+    </div>
+
+    <div class="fooldal">
+        <h1>CSS elemek részletes bemutatása</h1>
+        <p class="intro">
+            A CSS (Cascading Style Sheets) a weboldalak megjelenéséért felelős. Ezen az oldalon részletesen bemutatjuk a legfontosabb tulajdonságokat, szelektorokat, box modelt, layout lehetőségeket, tipográfiát, színeket, háttereket, animációkat, átmeneteket, és speciális szabályokat, hogy kezdőként és haladóként is átlásd a stílusok működését.
+        </p>
+
+        <h2>1. Szelektorok</h2>
+        <ul>
+            <li><strong>Elem szelektor:</strong> minden adott HTML elemet kiválaszt. Példa: <code>p { color: red; }</code> – minden p elem piros lesz</li>
+            <li><strong>Osztály szelektor:</strong> bármely elemhez, ami adott osztályt tartalmaz: <code>.fooldal { text-align: center; }</code> – az osztályhoz tartozó elemek középre lesznek igazítva</li>
+            <li><strong>ID szelektor:</strong> az egyedi azonosítóval rendelkező elem: <code>#header { background: blue; }</code> – csak a #header elemre vonatkozik</li>
+            <li><strong>Örökölt szelektor:</strong> pl. <code>div p { color: green; }</code> – minden p, ami div-en belül van, zöld lesz</li>
+            <li><strong>Attribútum szelektor:</strong> pl. <code>a[href^="https"] { color: green; }</code> – a href “https”-sel kezdődő linkek zöldek lesznek</li>
+        </ul>
+
+        <h2>2. Színek és háttér</h2>
+        <ul>
+            <li><strong>color:</strong> szöveg színe</li>
+            <li><strong>background-color:</strong> háttérszín beállítása</li>
+            <li><strong>background-image:</strong> háttérkép beállítása</li>
+            <li><strong>background-repeat:</strong> ismétlés beállítása (no-repeat, repeat-x, repeat-y)</li>
+            <li><strong>background-size:</strong> a háttérkép mérete (cover – kitölti az elemet, contain – arányosan illeszkedik, px, %)</li>
+            <li><strong>background-position:</strong> a háttérkép pozíciója (center, top, left, right)</li>
+            <li><strong>linear-gradient / radial-gradient:</strong> színátmenetek készítése (lineáris vagy radiális)</li>
+        </ul>
+
+        <h2>3. Betűk és szöveg</h2>
+        <ul>
+            <li><strong>font-family:</strong> betűtípus megadása</li>
+            <li><strong>font-size:</strong> betűméret beállítása (px, em, rem, %)</li>
+            <li><strong>font-weight:</strong> betűvastagság (normal, bold, 100-900)</li>
+            <li><strong>font-style:</strong> betű stílusa (normal, italic, oblique)</li>
+            <li><strong>text-align:</strong> szöveg igazítása (left, right, center, justify)</li>
+            <li><strong>line-height:</strong> sorok közötti távolság</li>
+            <li><strong>text-decoration:</strong> szöveg aláhúzás, áthúzás, nincs, felülhúzás</li>
+            <li><strong>text-transform:</strong> szöveg átalakítása (uppercase – nagybetű, lowercase – kisbetű, capitalize – minden szó első betűje nagy)</li>
+            <li><strong>letter-spacing:</strong> betűköz</li>
+            <li><strong>word-spacing:</strong> szóköz a szavak között</li>
+        </ul>
+
+        <h2>4. Box model</h2>
+        <ul>
+            <li><strong>width / height:</strong> elem szélessége és magassága</li>
+            <li><strong>padding:</strong> belső margó a tartalom és a keret között</li>
+            <li><strong>border:</strong> keret stílusa, színe, vastagsága</li>
+            <li><strong>margin:</strong> külső margó, távolság más elemtől</li>
+            <li><strong>box-sizing:</strong> content-box / border-box – hogyan számítjuk a szélességet és magasságot (padding és border beszámít-e)</li>
+        </ul>
+
+        <h2>5. Pozicionálás</h2>
+        <ul>
+            <li><strong>position:</strong> elem pozíciója (static, relative, absolute, fixed, sticky)</li>
+            <li><strong>top / right / bottom / left:</strong> pozíció megadása a position alapján</li>
+            <li><strong>z-index:</strong> réteg sorrend meghatározása</li>
+            <li><strong>overflow:</strong> hogyan kezeljük a túlcsorduló tartalmat (visible, hidden, scroll, auto)</li>
+        </ul>
+
+        <h2>6. Layout technikák</h2>
+        <ul>
+            <li><strong>display:</strong> elem megjelenítése (block, inline, inline-block, flex, grid, none)</li>
+            <li><strong>Flexbox:</strong> rugalmas elrendezés: display: flex; justify-content – vízszintes igazítás; align-items – függőleges igazítás; flex-wrap – tördelés</li>
+            <li><strong>Grid:</strong> rács alapú elrendezés: display: grid; grid-template-columns / rows – oszlopok és sorok; gap – térköz</li>
+        </ul>
+
+        <h2>7. Átmenetek és animációk</h2>
+        <ul>
+            <li><strong>transition:</strong> sima átmenet tulajdonságok között, pl. hover esetén</li>
+            <li><strong>@keyframes:</strong> animáció lépéseinek definiálása</li>
+            <li><strong>animation:</strong> animáció neve, időtartam, ismétlés, irány, késleltetés</li>
+        </ul>
+
+        <h2>8. Láthatóság és átlátszóság</h2>
+        <ul>
+            <li><strong>opacity:</strong> elem átlátszósága 0-1 között</li>
+            <li><strong>visibility:</strong> láthatóság: visible / hidden</li>
+            <li><strong>clip-path:</strong> elem vágása különböző formákra</li>
+        </ul>
+
+        <h2>9. Speciális tulajdonságok</h2>
+        <ul>
+            <li><strong>cursor:</strong> kurzor stílusa: pointer, default, move, text stb.</li>
+            <li><strong>box-shadow:</strong> árnyék hozzáadása a dobozhoz</li>
+            <li><strong>text-shadow:</strong> árnyék a szöveghez</li>
+            <li><strong>transition-timing-function:</strong> animáció sebesség görbéje: ease, linear, ease-in, ease-out</li>
+        </ul>
+
+        <h2>10. Példa egyszerű CSS-re</h2>
+        <pre>
+p {
+    color: white; /* szöveg színe fehér */
+    background-color: #1595c0; /* háttérszín */
+    padding: 10px; /* belső margó */
+    border-radius: 5px; /* lekerekített sarkok */
+    text-align: center; /* középre igazítás */
+    font-family: Arial, sans-serif; /* betűtípus */
+    font-size: 16px; /* betűméret */
+}
+a:hover {
+    color: #ffd700; /* hover szín */
+    background-color: rgba(0,0,0,0.3); /* hover háttér átlátszó fekete */
+}
+        </pre>
+        <p>Ez a példa egy bekezdést formáz, link hover effektussal és háttérszínnel.</p>
+
+    </div>
+
+</body>
+</html>

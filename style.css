@@ -1,0 +1,109 @@
+/* Háttér */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('hatter.jpg') no-repeat center center fixed; /* ide a kép */
+    background-size: cover;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.3); /* átlátszó */
+    backdrop-filter: blur(10px); /* homályosítás */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.navbar .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar .logo {
+    width: 40px;
+}
+
+.navbar .title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.nav-links a {
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: rgba(0,0,0,0.4);
+    color: #ffd700;
+}
+
+/* Fő tartalom */
+.fooldal {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: left;
+    line-height: 1.7;
+    background: rgba(255, 255, 255, 0.8); /* szöveg háttere, olvasható */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.fooldal h1, .fooldal h2 {
+    color: #1595c0;
+    margin-bottom: 15px;
+}
+
+.fooldal ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.fooldal p, .fooldal pre {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Kódblokkok */
+.fooldal pre {
+    background-color: #e8f4fc;
+    padding: 15px;
+    border-left: 4px solid #1595c0;
+    overflow-x: auto;
+    border-radius: 5px;
+}
+
+/* Reszponzív mobilra */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        margin-top: 10px;
+    }
+    .nav-links a {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+    .fooldal {
+        margin: 20px;
+        padding: 15px;
+    }
+}
