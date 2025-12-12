@@ -1,36 +1,151 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weboldal programozás</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weboldal programozás</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="navbar">
-        <div class="nav-left">
-            <img src="logo.png" class="logo" alt="Logo">
-            <h1 class="title">Weboldal programozás</h1>
-        </div>
-
-        <div class="nav-links">
-            <a href="index.html">Főoldal</a>
-            <a href="html szerkezete.html">HTML szerkezete</a>
-            <a href="css szerkezete.html">CSS szerkezete</a>
-            <a href="https://my.storageshare.cloud/s/4eBWqf2wj85GrLj"  target="_blank">Feltöltések</a>
-        </div>
+<div class="navbar">
+    <div class="nav-left">
+        <img src="logo.png" class="logo" alt="Logo">
+        <h1 class="title">Weboldal programozás</h1>
     </div>
-
-    <div class="fooldal">
-        <h1>Üdvözöllek Benedek weboldalán!</h1>
-        <p class="intro">
-            Ez a weboldal egy bemutató és segítő oldal, amely azért jött létre, hogy áttekinthetően mutassa be a weboldalak készítésének alapjait és lehetőségeit.
-            Itt ötleteket, tippeket és példákat találsz, amely inspirálhat vagy segíthet a saját weboldalad kialakításában.
-            A cél, hogy bárki könnyen eligazodjon a webdesign világában, és felfedezhesse a kreatív lehetőségeket, miközben egyszerűen követhető példákon keresztül tanulhat.
-        </p>
+    <div class="nav-links">
+        <a href="index.html">Főoldal</a>
+        <a href="html szerkezete.html">HTML szerkezete</a>
+        <a href="css szerkezete.html">CSS szerkezete</a>
+        <a href="java script szerkezete.html">JavaScript szerkezete</a>
+        <a href="nevjegy.html">Névjegy</a>
     </div>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Főoldal</a>
+    <a href="html szerkezete.html">HTML szerkezete</a>
+    <a href="css szerkezete.html">CSS szerkezete</a>
+    <a href="java script szerkezete.html">JavaScript szerkezete</a>
+    <a href="nevjegy.html">Névjegy</a>
+</div>
+
+
+<div class="fooldal">
+    <h1>Üdvözöllek a websugo.hu-n!</h1>
+    <p class="intro">
+        Ez az oldal azért készült, hogy egyszerűen és átláthatóan bemutassa a weboldalkészítés alapjait és lehetőségeit. Találsz rajta ötleteket, tippeket és mintákat, amelyek segítenek elindulni a saját weboldalad felépítésében. A cél, hogy bárki könnyen eligazodjon a webdesign világában, és gyors, érthető példákon keresztül tanulhasson.
+    </p>
+</div>
+
+<!-- Lejátszópanel -->
+<div id="audioPlayer">
+    <div id="audioControls">
+        <button id="prevBtn">⏮</button>
+        <button id="playBtn">▶</button>
+        <button id="nextBtn">⏭</button>
+    </div>
+    <span id="trackName">Zene 1</span>
+    <input type="range" id="audioProgress" value="0" min="0" max="100">
+
+    <!-- Hangerő csúszka ikon előtt -->
+    <div id="volumeContainer">
+        <span id="volumeIcon">🔊</span>
+        <input type="range" id="volumeControl" value="100" min="0" max="100">
+    </div>
+</div>
+
+
+<audio id="bgMusic"></audio>
+
+<script>
+const tracks = [
+    {src: "Sia - Snowman.mp3", name: "Sia - Snowman"},
+    {src: "Lindsey Stirling - Carol of the Bells (Official Music Video).mp3", name: "Lindsey Stirling - Carol of the Bells"},
+    {src: "Zséda - A szürke patás (Official Music Video).mp3", name: "Zséda - A szürke patás"}
+];
+
+let currentTrack = 0;
+const music = document.getElementById("bgMusic");
+const playBtn = document.getElementById("playBtn");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const trackName = document.getElementById("trackName");
+const audioProgress = document.getElementById("audioProgress");
+const volumeControl = document.getElementById("volumeControl");
+
+function loadTrack(index) {
+    music.src = tracks[index].src;
+    trackName.textContent = tracks[index].name;
+    music.load();
+}
+loadTrack(currentTrack);
+
+// Lejátszás / szünet
+playBtn.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        playBtn.textContent = "⏸";
+    } else {
+        music.pause();
+        playBtn.textContent = "▶";
+    }
+});
+
+// Előző / következő
+prevBtn.addEventListener("click", () => {
+    currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+    loadTrack(currentTrack);
+    music.play();
+    playBtn.textContent = "⏸";
+});
+
+nextBtn.addEventListener("click", () => {
+    currentTrack = (currentTrack + 1) % tracks.length;
+    loadTrack(currentTrack);
+    music.play();
+    playBtn.textContent = "⏸";
+});
+
+// Automatikus következő zene
+music.addEventListener("ended", () => {
+    currentTrack = (currentTrack + 1) % tracks.length;
+    loadTrack(currentTrack);
+    music.play();
+    playBtn.textContent = "⏸";
+});
+
+// Progress frissítése
+music.addEventListener("timeupdate", () => {
+    if (music.duration) {
+        audioProgress.value = (music.currentTime / music.duration) * 100;
+    }
+});
+
+// Progress változtatása
+audioProgress.addEventListener("input", () => {
+    music.currentTime = (audioProgress.value / 100) * music.duration;
+});
+
+// Hangerő vezérlés
+music.volume = volumeControl.value / 100;
+volumeControl.addEventListener("input", () => {
+    music.volume = volumeControl.value / 100;
+});
+</script>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("show");
+}
+</script>
 
 </body>
-
 </html>

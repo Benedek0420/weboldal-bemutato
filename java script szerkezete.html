@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Részletes Bemutató</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="nav-left">
+            <img src="logo.png" class="logo" alt="Logo">
+            <h1 class="title">Weboldal programozás</h1>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Főoldal</a>
+            <a href="html szerkezete.html">HTML szerkezete</a>
+            <a href="css szerkezete.html">CSS szerkezete</a>
+            <a href="java script szerkezete.html">JavaScript szerkezete</a>
+            <a href="nevjegy.html">Névjegy</a>
+        </div>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Főoldal</a>
+    <a href="html szerkezete.html">HTML szerkezete</a>
+    <a href="css szerkezete.html">CSS szerkezete</a>
+    <a href="java script szerkezete.html">JavaScript szerkezete</a>
+    <a href="nevjegy.html">Névjegy</a>
+</div>
+
+
+    <div class="fooldal">
+        <h1>JavaScript részletes bemutató</h1>
+        <p class="intro">
+            A JavaScript (JS) a weboldalak interaktivitásáért felel. Ezen az oldalon részletesen bemutatjuk a JS alapokat, változókat, függvényeket, feltételeket, ciklusokat, eseményeket, objektumokat, tömböket és a DOM manipulációt.
+        </p>
+
+        <h2>1. Alap JavaScript kód</h2>
+        <pre>
+&lt;script&gt;
+console.log("Hello, világ!"); // Kiírja a szöveget a böngésző konzoljába
+&lt;/script&gt;
+        </pre>
+        <p><strong>console.log()</strong> – a kódot a fejlesztői konzolba írja, nem a weboldalra.</p>
+
+        <h2>2. Változók</h2>
+        <pre>
+let név = "Benedek";   // Módosítható változó
+const év = 2025;        // Állandó, nem változtatható
+var kor = 15;            // Régi típus, ma már ritkán használjuk
+        </pre>
+        <ul>
+            <li><strong>let</strong> – új változó létrehozása, később módosítható</li>
+            <li><strong>const</strong> – állandó változó, nem lehet új értéket adni</li>
+            <li><strong>var</strong> – régi változó, ma már inkább let-et használunk</li>
+        </ul>
+
+        <h2>3. Adattípusok</h2>
+        <ul>
+            <li>String: szöveg, pl. <code>"Hello"</code></li>
+            <li>Number: szám, pl. <code>10, 3.14</code></li>
+            <li>Boolean: logikai érték, <code>true</code> vagy <code>false</code></li>
+            <li>Array (tömb): lista, pl. <code>[1, 2, 3]</code></li>
+            <li>Object (objektum): kulcs-érték pár, pl. <code>{ név: "Benedek", kor: 15 }</code></li>
+        </ul>
+
+        <h2>4. Függvények (function)</h2>
+        <pre>
+function koszones(név) {
+    console.log("Szia " + név + "!"); // Kiírja a szöveget a konzolba
+}
+
+koszones("Benedek"); // Meghívja a függvényt, kiírja: Szia Benedek!
+        </pre>
+        <p><strong>function</strong> – függvény létrehozása; <strong>paraméter</strong> a bemenet a függvénynek.</p>
+
+        <h2>5. Feltételes utasítások</h2>
+        <pre>
+let életkor = 15;
+
+if (életkor >= 18) {
+    console.log("Felnőtt vagy.");
+} else if (életkor >= 12) {
+    console.log("Tini vagy.");
+} else {
+    console.log("Gyerek vagy.");
+}
+        </pre>
+        <ul>
+            <li><strong>if</strong> – ha a feltétel igaz, végrehajtja a kódot</li>
+            <li><strong>else if</strong> – másik feltétel</li>
+            <li><strong>else</strong> – minden más esetben</li>
+        </ul>
+
+        <h2>6. Ciklusok</h2>
+        <p>Ugyanazt a kódot többször futtatjuk:</p>
+        <pre>
+for (let i = 0; i &lt; 5; i++) {
+    console.log("Szám: " + i); // 0-tól 4-ig írja ki a számokat
+}
+
+let j = 0;
+while (j &lt; 5) {
+    console.log("Szám: " + j);
+    j++;
+}
+        </pre>
+        <p><strong>for</strong> – ismétlődő feladat előre meghatározott számú alkalommal.<br>
+           <strong>while</strong> – amíg a feltétel igaz, addig fut a kód.</p>
+
+        <h2>7. Események</h2>
+        <p>Interaktív elemek kezelése:</p>
+        <button id="gomb">Kattints rám!</button>
+        <pre>
+document.getElementById("gomb").addEventListener("click", function() {
+    alert("Szia Benedek!"); // Felugró ablak a kattintáskor
+});
+        </pre>
+        <ul>
+            <li><strong>getElementById()</strong> – kiválaszt egy HTML elemet az ID alapján</li>
+            <li><strong>addEventListener()</strong> – esemény figyelése (pl. kattintás)</li>
+            <li><strong>alert()</strong> – felugró üzenet megjelenítése</li>
+        </ul>
+
+        <h2>8. DOM manipuláció</h2>
+        <p>HTML tartalom módosítása JavaScript segítségével:</p>
+        <p id="szoveg">Ez a szöveg változni fog.</p>
+        <pre>
+document.getElementById("szoveg").innerText = "Új szöveg!";
+document.getElementById("szoveg").innerHTML = "&lt;strong&gt;Félkövér szöveg&lt;/strong&gt;";
+        </pre>
+        <ul>
+            <li><strong>innerText</strong> – csak szöveget ír</li>
+            <li><strong>innerHTML</strong> – HTML-t is megadhatunk</li>
+        </ul>
+
+        <h2>9. Objektumok</h2>
+        <pre>
+let auto = {
+    márka: "Tesla",
+    év: 2025,
+    indítás: function() {
+        console.log(this.márka + " elindult!"); // this az objektumra hivatkozik
+    }
+};
+
+auto.indítás(); // Tesla elindult!
+        </pre>
+
+        <h2>10. Tömbök (Arrays)</h2>
+        <pre>
+let számok = [1, 2, 3, 4, 5];
+
+számok.push(6);  // Új elem hozzáadása a tömbhöz
+számok.pop();    // Utolsó elem eltávolítása
+console.log(számok[0]); // Első elem: 1
+        </pre>
+
+        <h2>11. Tippek kezdőknek</h2>
+        <ul>
+            <li>Mindig használj kommenteket: <code>// egy soros</code> vagy <code>/* több soros */</code></li>
+            <li>Először tanulj változókat, függvényeket, majd feltételeket és ciklusokat</li>
+            <li>Gyakorold a DOM manipulációt és az eseménykezelést</li>
+            <li>Mentés után frissítsd a böngészőt, hogy lásd a változásokat</li>
+        </ul>
+
+    </div>
+
+    <script>
+        // Esemény példa
+        document.getElementById("gomb").addEventListener("click", function() {
+            alert("Ez egy JS esemény!");
+        });
+
+        // Példa DOM módosításra
+        document.getElementById("szoveg").innerText = "A JavaScript tanulása szórakoztató!";
+    </script>
+
+<!-- Lejátszópanel -->
+<div id="audioPlayer">
+    <div id="audioControls">
+        <button id="prevBtn">⏮</button>
+        <button id="playBtn">▶</button>
+        <button id="nextBtn">⏭</button>
+    </div>
+    <span id="trackName">Zene 1</span>
+    <input type="range" id="audioProgress" value="0" min="0" max="100">
+
+    <!-- Hangerő csúszka ikon előtt -->
+    <div id="volumeContainer">
+        <span id="volumeIcon">🔊</span>
+        <input type="range" id="volumeControl" value="100" min="0" max="100">
+    </div>
+</div>
+
+
+<audio id="bgMusic"></audio>
+
+<script>
+const tracks = [
+    {src: "Sia - Snowman.mp3", name: "Sia - Snowman"},
+    {src: "Lindsey Stirling - Carol of the Bells (Official Music Video).mp3", name: "Lindsey Stirling - Carol of the Bells"},
+    {src: "Zséda - A szürke patás (Official Music Video).mp3", name: "Zséda - A szürke patás"}
+];
+
+let currentTrack = 0;
+const music = document.getElementById("bgMusic");
+const playBtn = document.getElementById("playBtn");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const trackName = document.getElementById("trackName");
+const audioProgress = document.getElementById("audioProgress");
+const volumeControl = document.getElementById("volumeControl");
+
+function loadTrack(index) {
+    music.src = tracks[index].src;
+    trackName.textContent = tracks[index].name;
+    music.load();
+}
+loadTrack(currentTrack);
+
+// Lejátszás / szünet
+playBtn.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        playBtn.textContent = "⏸";
+    } else {
+        music.pause();
+        playBtn.textContent = "▶";
+    }
+});
+
+// Előző / következő
+prevBtn.addEventListener("click", () => {
+    currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+    loadTrack(currentTrack);
+    music.play();
+    playBtn.textContent = "⏸";
+});
+
+nextBtn.addEventListener("click", () => {
+    currentTrack = (currentTrack + 1) % tracks.length;
+    loadTrack(currentTrack);
+    music.play();
+    playBtn.textContent = "⏸";
+});
+
+// Automatikus következő zene
+music.addEventListener("ended", () => {
+    currentTrack = (currentTrack + 1) % tracks.length;
+    loadTrack(currentTrack);
+    music.play();
+    playBtn.textContent = "⏸";
+});
+
+// Progress frissítése
+music.addEventListener("timeupdate", () => {
+    if (music.duration) {
+        audioProgress.value = (music.currentTime / music.duration) * 100;
+    }
+});
+
+// Progress változtatása
+audioProgress.addEventListener("input", () => {
+    music.currentTime = (audioProgress.value / 100) * music.duration;
+});
+
+// Hangerő vezérlés
+music.volume = volumeControl.value / 100;
+volumeControl.addEventListener("input", () => {
+    music.volume = volumeControl.value / 100;
+});
+</script>
+</body>
+</html>

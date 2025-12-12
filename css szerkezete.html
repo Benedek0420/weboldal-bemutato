@@ -10,7 +10,7 @@
 
     <div class="navbar">
         <div class="nav-left">
-            <img src="Logó.png" class="logo" alt="Logo">
+            <img src="logo.png" class="logo" alt="Logo">
             <h1 class="title">Weboldal programozás</h1>
         </div>
 
@@ -18,9 +18,25 @@
             <a href="index.html">Főoldal</a>
             <a href="html szerkezete.html">HTML szerkezete</a>
             <a href="css szerkezete.html">CSS szerkezete</a>
-            <a href="https://my.storageshare.cloud/s/4eBWqf2wj85GrLj"  target="_blank">Feltöltések</a>
+            <a href="java script szerkezete.html">JavaScript szerkezete</a>
+            <a href="nevjegy.html">Névjegy</a>
         </div>
     </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Főoldal</a>
+    <a href="html szerkezete.html">HTML szerkezete</a>
+    <a href="css szerkezete.html">CSS szerkezete</a>
+    <a href="java script szerkezete.html">JavaScript szerkezete</a>
+    <a href="nevjegy.html">Névjegy</a>
+</div>
+
 
     <div class="fooldal">
         <h1>CSS elemek részletes bemutatása</h1>
@@ -128,5 +144,101 @@ a:hover {
 
     </div>
 
+
+<!-- Lejátszópanel -->
+<div id="audioPlayer">
+    <div id="audioControls">
+        <button id="prevBtn">⏮</button>
+        <button id="playBtn">▶</button>
+        <button id="nextBtn">⏭</button>
+    </div>
+    <span id="trackName">Zene 1</span>
+    <input type="range" id="audioProgress" value="0" min="0" max="100">
+
+    <!-- Hangerő csúszka ikon előtt -->
+    <div id="volumeContainer">
+        <span id="volumeIcon">🔊</span>
+        <input type="range" id="volumeControl" value="100" min="0" max="100">
+    </div>
+</div>
+
+
+<audio id="bgMusic"></audio>
+
+<script>
+const tracks = [
+    {src: "Sia - Snowman.mp3", name: "Sia - Snowman"},
+    {src: "Lindsey Stirling - Carol of the Bells (Official Music Video).mp3", name: "Lindsey Stirling - Carol of the Bells"},
+    {src: "Zséda - A szürke patás (Official Music Video).mp3", name: "Zséda - A szürke patás"}
+];
+
+let currentTrack = 0;
+const music = document.getElementById("bgMusic");
+const playBtn = document.getElementById("playBtn");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const trackName = document.getElementById("trackName");
+const audioProgress = document.getElementById("audioProgress");
+const volumeControl = document.getElementById("volumeControl");
+
+function loadTrack(index) {
+    music.src = tracks[index].src;
+    trackName.textContent = tracks[index].name;
+    music.load();
+}
+loadTrack(currentTrack);
+
+// Lejátszás / szünet
+playBtn.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        playBtn.textContent = "⏸";
+    } else {
+        music.pause();
+        playBtn.textContent = "▶";
+    }
+});
+
+// Előző / következő
+prevBtn.addEventListener("click", () => {
+    currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+    loadTrack(currentTrack);
+    music.play();
+    playBtn.textContent = "⏸";
+});
+
+nextBtn.addEventListener("click", () => {
+    currentTrack = (currentTrack + 1) % tracks.length;
+    loadTrack(currentTrack);
+    music.play();
+    playBtn.textContent = "⏸";
+});
+
+// Automatikus következő zene
+music.addEventListener("ended", () => {
+    currentTrack = (currentTrack + 1) % tracks.length;
+    loadTrack(currentTrack);
+    music.play();
+    playBtn.textContent = "⏸";
+});
+
+// Progress frissítése
+music.addEventListener("timeupdate", () => {
+    if (music.duration) {
+        audioProgress.value = (music.currentTime / music.duration) * 100;
+    }
+});
+
+// Progress változtatása
+audioProgress.addEventListener("input", () => {
+    music.currentTime = (audioProgress.value / 100) * music.duration;
+});
+
+// Hangerő vezérlés
+music.volume = volumeControl.value / 100;
+volumeControl.addEventListener("input", () => {
+    music.volume = volumeControl.value / 100;
+});
+</script>
 </body>
 </html>
